@@ -3,3 +3,7 @@ directionality_check.pl is a perl script to see how many RNA reads are mapped to
 
 ### Comparison between directionality_check.pl and dirseq software developed by Ben. Woodcroft.
 
+This is a comparison using the NTO RNA seq dataset (manuscript in preparation)
+
+
+![dirseq_all_new](https://user-images.githubusercontent.com/38149286/133333611-63f681e2-8efa-44ac-880c-0c28ab5da360.jpg)
