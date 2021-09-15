@@ -4,6 +4,12 @@ directionality_check.pl is a perl script to see how many RNA reads are mapped to
 
 ### How to use
 ```
+## first of all, you need seqtk mergepe to prepare interleaved reads in fasta format. This is required
+
+seqtk mergepe sample.R1.fasta.gz sample.R2.fasta.gz > sample.interleaved.fasta
+
+
+Then run the pipeline.
 ./check_rna.sh database_genome query.fa output_dir
 
 ### if you have the filtered blast tabular output
