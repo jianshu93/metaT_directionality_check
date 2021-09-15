@@ -4,6 +4,9 @@ directionality_check.pl is a perl script to see how many RNA reads are mapped to
 
 ### How to use
 ```
+./check_rna.sh database_genome query.fa output_dir
+
+### if you have the filtered blast tabular output
 perl directionality_check.pl tabular.txt > output.txt
 ```
 
@@ -13,3 +16,9 @@ This is a comparison using the NTO RNA seq dataset (manuscript in preparation). 
 
 
 ![dirseq_all_new](https://user-images.githubusercontent.com/38149286/133333611-63f681e2-8efa-44ac-880c-0c28ab5da360.jpg)
+
+
+### Reference
+
+1. Ben J Woodcroft et al. 2018. “Genome-Centric View of Carbon Processing in Thawing Permafrost.” 560(7716):1–24.
+2. Johnston, Eric R. et al. 2019. “Phosphate Addition Increases Tropical Forest Soil Respiration Primarily by Deconstraining Microbial Population Growth.” Soil Biology and Biochemistry 130:43–54.
