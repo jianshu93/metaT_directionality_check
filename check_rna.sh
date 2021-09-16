@@ -76,9 +76,9 @@ else
   fi
 fi
 
-if [[ -s $output/$reads.reformatted ]]
+if [[ -s $output/$reads.reformatted.new ]]
 then
-  reads=$output/$reads.reformatted
+  reads=$output/$reads.reformatted.new
 else
   #Check reformatting the other file
   num_lines=$(wc -l $reads | head -n1 | awk '{print $1;}')
@@ -91,8 +91,16 @@ else
     #reformat the fasta and rename the variable
     echo "Reformatting the $reads file so seqs are on one line..."
     ./FastA.reformat.oneline.pl -i $reads -o $output/$reads.reformatted
+    $(awk 'NR%4==1{c=2} c&&c--' $output/$reads.reformatted > $output/$reads.reformatted_1)
+    $(awk 'NR%4==3{c=2} c&&c--' $output/$reads.reformatted > $output/$reads.reformatted_2)
+    reads_1=$output/$reads.reformatted_1
+    reads_2=$output/$reads.reformatted_2
+    $(./FastA.tag.rb -i $reads_1 -o $output/$reads.reformatted_1.rename -s /1 -q -p non-ribosomal_)
+    $(./FastA.tag.rb -i $reads_2 -o $output/$reads.reformatted_2.rename -s /2 -q -p non-ribosomal_)
+    $(./dependencies/seqtk_linux mergepe $output/$reads.reformatted_1.rename $output/$reads.reformatted_2.rename > $output/reads.reformatted.new)
+    $(rm $output/$reads.reformatted_1 $output/$reads.reformatted_2 $output/$reads.reformatted_1.rename $output/$reads.reformatted_2.rename)
+    reads=$output/$reads.reformatted.new
     echo "Done reformatting $reads..."
-    reads=$output/$reads.reformatted
   fi
 fi
 
@@ -106,11 +114,11 @@ else
   #Run blast
   echo "Making BLAST database..."
   makeblastdb -in $database_all -dbtype nucl
-  echo "Running BLAST with 70% identity cutoff..."
+  echo "Running BLAST with 98% identity cutoff..."
   blastn -db $database_all -query $reads -out $output/tmp.orig.blst -task megablast -evalue 1e-9 -perc_identity 98 -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen'
   echo "Done with BLAST..."
   #Filter for length
-  echo "Adding length of query to blast result and filtering for 95% query alignment ratio"
+  echo "Adding length of query to blast result and filtering for 95% query alignment ratio and 50bp length filtering"
   ./BlastTab.addlen.pl -i $reads -b $output/tmp.orig.blst -o $output/tmp.length.blst
   #Filter for best match
   echo "Only keeping best match from BLAST results..."
