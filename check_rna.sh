@@ -41,7 +41,7 @@ if [ -d "$database" ]; then
 	      BASE=${F##*/}
 	      SAMPLE=${BASE%.*}
         $(./dependencies/seqtk_linux rename $F ${SAMPLE}. > $output/${SAMPLE}.rename.fasta)
-        $(./dependencies/prodigal_linux -i ${SAMPLE}.rename.fasta -f gff -d $output/${SAMPLE}.fna -o $output/${SAMPLE}.gff -p meta)
+        $(./pprodigal -i $output/${SAMPLE}.rename.fasta -f gff -d $output/${SAMPLE}.fna -o $output/${SAMPLE}.gff -p meta -T 8)
         $(./dependencies/seqtk_linux seq -C $output/${SAMPLE}.fna > $output/${SAMPLE}.fa)
         $(cat $output/${SAMPLE}.fa >> $output/all_gene_rename.fa)
     done
@@ -76,9 +76,9 @@ else
   fi
 fi
 
-if [[ -s $output/$reads.reformatted.new ]]
+if [[ -s $output/reads.reformatted ]]
 then
-  reads=$output/$reads.reformatted.new
+  reads=$output/reads.reformatted
 else
   #Check reformatting the other file
   num_lines=$(wc -l $reads | head -n1 | awk '{print $1;}')
@@ -90,19 +90,29 @@ else
   else
     #reformat the fasta and rename the variable
     echo "Reformatting the $reads file so seqs are on one line..."
-    ./FastA.reformat.oneline.pl -i $reads -o $output/$reads.reformatted
-    $(awk 'NR%4==1{c=2} c&&c--' $output/$reads.reformatted > $output/$reads.reformatted_1)
-    $(awk 'NR%4==3{c=2} c&&c--' $output/$reads.reformatted > $output/$reads.reformatted_2)
-    reads_1=$output/$reads.reformatted_1
-    reads_2=$output/$reads.reformatted_2
-    $(./FastA.tag.rb -i $reads_1 -o $output/$reads.reformatted_1.rename -s /1 -q -p non-ribosomal_)
-    $(./FastA.tag.rb -i $reads_2 -o $output/$reads.reformatted_2.rename -s /2 -q -p non-ribosomal_)
-    $(./dependencies/seqtk_linux mergepe $output/$reads.reformatted_1.rename $output/$reads.reformatted_2.rename > $output/reads.reformatted.new)
-    $(rm $output/$reads.reformatted_1 $output/$reads.reformatted_2 $output/$reads.reformatted_1.rename $output/$reads.reformatted_2.rename)
-    reads=$output/$reads.reformatted.new
+    ./FastA.reformat.oneline.pl -i $reads -o $output/reads.reformatted
     echo "Done reformatting $reads..."
+    reads=$output/reads.reformatted
   fi
+
 fi
+echo "add tag to reads header and reformat interleaved file..."
+
+if [[ -s $output/reads.reformatted.new ]]
+then
+  reads=$output/reads.reformatted.new
+else
+  $(awk 'NR%4==1{c=2} c&&c--' $reads > $output/reads.reformatted_1)
+  $(awk 'NR%4==3{c=2} c&&c--' $reads > $output/reads.reformatted_2)
+  reads_1=$output/reads.reformatted_1
+  reads_2=$output/reads.reformatted_2
+  $(./FastA.tag.rb -i $reads_1 -o $output/reads.reformatted_1.rename -s /1 -q -p non-ribosomal_)
+  $(./FastA.tag.rb -i $reads_2 -o $output/reads.reformatted_2.rename -s /2 -q -p non-ribosomal_)
+  $(./dependencies/seqtk_linux mergepe $output/reads.reformatted_1.rename $output/reads.reformatted_2.rename > $output/reads.reformatted.new)
+  $(rm $output/reads.reformatted_1 $output/reads.reformatted_2 $output/reads.reformatted_1.rename $output/reads.reformatted_2.rename)
+  reads=$output/reads.reformatted.new
+fi
+echo "reformat interleaved file done"
 
 #Check to see if the final blast file is present
 if [[ -s $output/final.blst ]]
