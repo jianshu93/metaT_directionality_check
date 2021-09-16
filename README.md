@@ -32,8 +32,8 @@ This is a comparison using the NTO RNA seq dataset (manuscript in preparation). 
 
 ### Reference
 
-1. Ben J Woodcroft et al. 2018. bGenome-Centric View of Carbon Processing in Thawing Permafrost.b 560(7716):1b24.
-2. Johnston, Eric R. et al. 2019. bPhosphate Addition Increases Tropical Forest Soil Respiration Primarily by Deconstraining Microbial Population Growth.b Soil Biology and Biochemistry 130:43b54.
-3. Zhu, Wenhan, Alexandre Lomsadze, and Mark Borodovsky. 2010. bAb Initio Gene Identification in Metagenomic Sequences.b Nucleic Acids Research 38(12):e132b32.
-4. Hyatt, Doug, Philip F. LoCascio, Loren J. Hauser, and Edward C. Uberbacher. 2012. bGene and Translation Initiation Site Prediction in Metagenomic Sequences.b Bioinformatics 28(17):2223b30.
-5. Rho, Mina, Haixu Tang, and Yuzhen Ye. 2010. bFragGeneScan: Predicting Genes in Short and Error-Prone Reads.b 38(20):e191b91.
+1. Ben J Woodcroft et al. 2018.Genome-Centric View of Carbon Processing in Thawing Permafrost. 560(7716):1-24.
+2. Johnston, Eric R. et al. 2019. Phosphate Addition Increases Tropical Forest Soil Respiration Primarily by Deconstraining Microbial Population Growth.b Soil Biology and Biochemistry 130:43-54.
+3. Zhu, Wenhan, Alexandre Lomsadze, and Mark Borodovsky. 2010. Ab Initio Gene Identification in Metagenomic Sequences.b Nucleic Acids Research 38(12):e132-32.
+4. Hyatt, Doug, Philip F. LoCascio, Loren J. Hauser, and Edward C. Uberbacher. 2012. Gene and Translation Initiation Site Prediction in Metagenomic Sequences.b Bioinformatics 28(17):2223-30.
+5. Rho, Mina, Haixu Tang, and Yuzhen Ye. 2010.FragGeneScan: Predicting Genes in Short and Error-Prone Reads. 38(20):e191.
