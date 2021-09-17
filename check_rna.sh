@@ -163,5 +163,5 @@ $(tail -n +2 $output/final.check.1.txt | awk '{sum+=$2;sum2+=$3} END{printf sum;
 $(tail -n +2 $output/final.check.2.txt | awk '{sum+=$2;sum2+=$3} END{printf sum2;printf "\t";printf sum;printf "\t";print sum/(sum+sum2)}' > $output/contamination_report.2.txt)
 $(cat $output/contamination_report.1.txt $output/contamination_report.2.txt | awk '{sum+=$1;sum2+=$2} END{printf sum;printf "\t";printf sum2;printf "\t";print sum2/(sum+sum2)}' > $output/contamination_report.all.txt)
 echo "Ratio of reads mapped to anti-sense is: " 
-cat $output/contamination_report.all.txt | awk 'print $3'
+cat $output/contamination_report.all.txt | awk '{print $3}'
 echo "All done"
