@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# author: Jianshu Zhao (jianshu.zhao@gatech.edu)
+# Date: 09/10/2021
+
 #checks for usage
 if [[ "$1" == "" || "$1" == "-h" || "$2" == "" || "$3" == "" ]]
 then
