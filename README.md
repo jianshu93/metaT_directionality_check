@@ -4,7 +4,7 @@ directionality_check.pl is a perl script to see how many RNA reads are mapped to
 
 ### How to use
 ```
-### for demo input, you must have wget and prodigal installed. Ruby, perl and Python 3 are also required.
+### for demo input, you must have wget and prodigal installed or in the path. Ruby, perl and Python 3 are also required.
 git clone https://github.com/jianshu93/metaT_directionality_check.git
 cd metaT_directionality_check
 gunzip ./demo_input/INPUT_nonribosomal_S9.interleaved.subsample.fa.gz
@@ -19,7 +19,7 @@ seqtk mergepe sample.R1.fasta.gz sample.R2.fasta.gz > sample.interleaved.fasta
 ```
 ### output directory explained
 
-You will have contamination_report.1.txt and contamination_report.2.txt, which showed you the numer of reads mapped to gene strand, reverse strand of gene strand (anti-sense) and ratio of reads mapped to anti-sense.
+You will have contamination_report.1.txt and contamination_report.2.txt, which showed you the numer of reads mapped to gene strand, reverse strand of gene strand (anti-sense) and ratio of reads mapped to anti-sense only for forward or reverse reads, respectively. contamination_report.all.txt is for both forward and reverse reads. The value (third column) should be very close for those 3 files. The last one will also be printed on screen
 
 
 ### Comparison between directionality_check.pl (this pipeline) and dirseq (https://github.com/wwood/dirseq) software developed by Ben. Woodcroft.
