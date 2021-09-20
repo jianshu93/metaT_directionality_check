@@ -37,4 +37,4 @@ This is a comparison using the NTO RNA seq dataset (manuscript in preparation). 
 3. Zhu, Wenhan, Alexandre Lomsadze, and Mark Borodovsky. 2010. Ab Initio Gene Identification in Metagenomic Sequences. Nucleic Acids Research 38(12):e132-32.
 4. Hyatt, Doug, Philip F. LoCascio, Loren J. Hauser, and Edward C. Uberbacher. 2012. Gene and Translation Initiation Site Prediction in Metagenomic Sequences. Bioinformatics 28(17):2223-30.
 5. Rho, Mina, Haixu Tang, and Yuzhen Ye. 2010.FragGeneScan: Predicting Genes in Short and Error-Prone Reads. 38(20):e191.
-6.Van der Jeugt, Felix, Peter Dawyndt, and Bart Mesuere. 2021. “FragGeneScanRs: Better and Faster Gene Prediction for Short Reads.” bioRxiv 1–7.
+6. Van der Jeugt, Felix, Peter Dawyndt, and Bart Mesuere. 2021. “FragGeneScanRs: Better and Faster Gene Prediction for Short Reads.” bioRxiv 1–7.
