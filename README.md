@@ -26,8 +26,20 @@ You will have contamination_report.1.txt and contamination_report.2.txt, which s
 
 This is a comparison using the NTO RNA seq dataset (manuscript in preparation). You need to remove ribosomal RNA reads first and then run blastn to have the tabular output as explained above (95% query alignment ratio and 98% identity). For those samples, if the reads mapped to anti-sense ratio is far below 50%, then you can be confident that you are actually sequencing RNA reads but not DNA. If reads mapped to anti-sense ratio is very close 50%, then you probably have DNA contamination during RNA sequencing. That being said, S14, S17,S18, S19, S20, S21 are contaminated RNA sequencing by DNA. Other samples look nice.
 
-
 ![dirseq_all_new](https://user-images.githubusercontent.com/38149286/133333611-63f681e2-8efa-44ac-880c-0c28ab5da360.jpg)
+
+### Detailed check of both good and contaminated samples
+```
+plot_bed.R
+```
+
+
+For each of the contig of reference assembly, we predicted genes for each assembly and then RNA reads were mapped to each gene (may be mapped to different strand of gene strand). Then we visualize how each RNA read was mapped to gene considering both start and stop positon and also strand (each box in the bottom panel represent gene position and strand). The first figure is from S13 (good), as you can see a random chosen contig from the ATO assembly is also telling that most of the reads are mapped to gene strand instead of the reverse strand of gene strand. The second is from a contaminated sample S19. As you can see, most RNA reads are randomly mapped to both strand no matter where the genes are.
+
+![S13_ATO_1_48](https://user-images.githubusercontent.com/38149286/134280114-7e49c5ef-0523-48b1-9405-94b00a5b5af9.jpg)
+
+![S19_ATO_1_48](https://user-images.githubusercontent.com/38149286/134280208-04aad47f-2b08-4b9f-a8e9-d858746ff93e.jpg)
+
 
 
 ### Reference
@@ -38,3 +50,4 @@ This is a comparison using the NTO RNA seq dataset (manuscript in preparation). 
 4. Hyatt, Doug, Philip F. LoCascio, Loren J. Hauser, and Edward C. Uberbacher. 2012. Gene and Translation Initiation Site Prediction in Metagenomic Sequences. Bioinformatics 28(17):2223-30.
 5. Rho, Mina, Haixu Tang, and Yuzhen Ye. 2010.FragGeneScan: Predicting Genes in Short and Error-Prone Reads. 38(20):e191.
 6. Van der Jeugt, Felix, Peter Dawyndt, and Bart Mesuere. 2021. “FragGeneScanRs: Better and Faster Gene Prediction for Short Reads.” bioRxiv 1–7.
+7. Phanstiel, Douglas H. 2014. “Sushi.R: Flexible, Quantitative and Integrative Genomic Visualizations for Publication-Quality Multi-Panel Figures.” Bioinformatics 1–3.
