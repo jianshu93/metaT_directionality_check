@@ -34,7 +34,9 @@ plot_bed.R
 ```
 
 
-For each of the contig of reference assembly, we predicted genes for each assembly and then RNA reads were mapped to each gene (may be mapped to different strand of gene strand). Then we visualize how each RNA read was mapped to gene considering both start and stop positon and also strand (each box in the bottom panel represent gene position and strand). The first figure is from S13 (good), as you can see a random chosen contig from the ATO assembly is also telling that most of the reads are mapped to gene strand instead of the reverse strand of gene strand. The second is from a contaminated sample S19. As you can see, most RNA reads are randomly mapped to both strand no matter where the genes are.
+For each of the contig of reference assembly, we predicted genes for each assembly and then RNA reads were mapped to contigs (may be mapped to different strand of gene strand on the contig). Then we visualize how each RNA read was mapped to contig considering both start and stop positon and also strand of genes (each box in the bottom panel represent gene position and strand). The first figure is from S13 (good), as you can see a random chosen contig from the ATO assembly is also telling that most of the reads are mapped to gene strand instead of the reverse strand of gene strand. The second is from a contaminated sample S19. As you can see, most RNA reads are randomly mapped to both strand no matter where the genes are.
+
+Both bam file and blastn based mapping tools, we have similar results. The last figure is from blastn while the former two are from bwa mem algorithm
 
 ![S13_ATO_1_48](https://user-images.githubusercontent.com/38149286/134280114-7e49c5ef-0523-48b1-9405-94b00a5b5af9.jpg)
 
