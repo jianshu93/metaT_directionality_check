@@ -42,7 +42,7 @@ Both bam file and blastn based mapping tools, we have similar results. The last 
 
 ![S19_ATO_1_48](https://user-images.githubusercontent.com/38149286/134280208-04aad47f-2b08-4b9f-a8e9-d858746ff93e.jpg)
 
-
+![S13_ATO_1_48_blastn](https://user-images.githubusercontent.com/38149286/134618102-5f1d7fc6-e134-4987-a2cc-03fd995591ca.jpg)
 
 ### Reference
 
