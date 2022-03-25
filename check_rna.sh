@@ -128,7 +128,7 @@ else
   echo "Making BLAST database..."
   makeblastdb -in $database_all -dbtype nucl
   echo "Running BLAST with 98% identity cutoff..."
-  blastn -db $database_all -query $reads -out $output/tmp.orig.blst -task megablast -evalue 1e-9 -perc_identity 98 -num_threads $(nproc) -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen'
+  blastn -db $database_all -query $reads -out $output/tmp.orig.blst -task megablast -evalue 1e-9 -perc_identity 98 -num_threads $(nproc) -mt_mode 1 -outfmt '6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qlen slen'
   echo "Done with BLAST..."
   #Filter for length
   echo "Adding length of query to blast result and filtering for 95% query alignment ratio and 50bp length filtering"
