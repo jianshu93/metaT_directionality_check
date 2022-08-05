@@ -2,7 +2,7 @@
 This is for DNA contamination check when doing RNA sequencing (or metatranscriptomics). Output non-ribosomal RNA reads (interleaved output) from sortmerna can be directly used for this pipeline.
 directionality_check.pl is a perl script to see how many RNA reads are mapped to the gene strand of your DNA reference (typically your genome or assembly). Then if you sustract this value from total reads, you will have number of reads mapped to anti-sense, which is the reverse strand of gene strand. Note that the script expects a blast tabular input format. You may need to extract forward reads record or reverse reads record from the tabular output if you are using interleaved (R1,R2,R1,R2...) reads files as query for blastn. use -strand both for blastn!! The mentioned steps are all done for you by the check_rna.sh script, together with a few other scripts developed by the kostas lab. For details, please contact Jianshu Zhao (jianshuzhao@yahoo.com)
 
-### How to use
+### Demo Usage
 ```
 ### for demo input, you must have wget and prodigal installed or in the path. Ruby, perl and Python 3 are also required.
 git clone https://github.com/jianshu93/metaT_directionality_check.git
@@ -17,6 +17,15 @@ chmod a+x ./*
 ## first of all, you need seqtk mergepe to prepare interleaved reads in fasta format. This is required. other formats are not accecpted. Then run the pipeline.
 seqtk mergepe sample.R1.fasta.gz sample.R2.fasta.gz > sample.interleaved.fasta
 ```
+### PACE Users at Georgia Tech
+
+The following modules need to be loaded (or this software must otherwise be available on your PATH) for a successful run:
+```module load prodigal
+module load ruby
+module load blast-plus/2.12.0```
+
+Then proceed as directed, ensuring the directory you supply as input one contains those MAGs with ".fasta" as the file suffix.
+
 ### output directory explained
 
 You will have contamination_report.1.txt and contamination_report.2.txt, which showed you the numer of reads mapped to gene strand, reverse strand of gene strand (anti-sense) and ratio of reads mapped to anti-sense only for forward or reverse reads, respectively. contamination_report.all.txt is for both forward and reverse reads. The value (third column) should be very close for those 3 files. The last one will also be printed on screen
