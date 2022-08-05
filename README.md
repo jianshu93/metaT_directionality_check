@@ -22,7 +22,8 @@ seqtk mergepe sample.R1.fasta.gz sample.R2.fasta.gz > sample.interleaved.fasta
 The following modules need to be loaded (or this software must otherwise be available on your PATH) for a successful run:
 ```module load prodigal
 module load ruby
-module load blast-plus/2.12.0```
+module load blast-plus/2.12.0
+```
 
 Then proceed as directed, ensuring the directory you supply as input one contains those MAGs with ".fasta" as the file suffix.
 
