@@ -17,6 +17,13 @@ chmod a+x ./*
 ## first of all, you need seqtk mergepe to prepare interleaved reads in fasta format. This is required. other formats are not accecpted. Then run the pipeline.
 seqtk mergepe sample.R1.fasta.gz sample.R2.fasta.gz > sample.interleaved.fasta
 ```
+
+
+### Dependencies and softwares
+
+You should have ruby (>2.7), perl, python and blast (v2.12 or above) installed before running hte pipeline. If you want to use the plot script, R should also be installed.
+
+
 ### PACE Users at Georgia Tech
 
 The following modules need to be loaded (or this software must otherwise be available on your PATH) for a successful run:
