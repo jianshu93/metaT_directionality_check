@@ -46,7 +46,10 @@ This is a comparison using the NTO RNA seq dataset (manuscript in preparation). 
 ![dirseq_all_new](https://user-images.githubusercontent.com/38149286/133333611-63f681e2-8efa-44ac-880c-0c28ab5da360.jpg)
 
 ### Detailed check of both good and contaminated samples
+I use bedtools and blast2bed (https://github.com/nterhoeven/blast2bed) script to transfrom bam and blast tabular files to bed format for plotting. See plot_demo folder for details
 ```
+bedtools samtobed -i *bam > bed.txt
+blast2bed blast_tabular > blast_bed
 plot_bed.R
 ```
 
