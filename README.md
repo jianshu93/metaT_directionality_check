@@ -61,6 +61,13 @@ Both bam file and blastn based mapping tools, we have similar results. The last 
 
 ![S13_ATO_1_48_blastn](https://user-images.githubusercontent.com/38149286/134618102-5f1d7fc6-e134-4987-a2cc-03fd995591ca.jpg)
 
+
+### Non-stranded library protocol
+At the very beginning of RNA sequencing, Synthesis of randomly primed double-stranded cDNA followed by the addition of adaptors for next-generation sequencing leads to the loss of information on which strand the original mRNA template is coming from. Therefore the ratio will always be 0.5. However, the mapping pattern is different from a DNA contaminiated one:
+
+![S002_idbanorm_5kb 38 contig14](https://user-images.githubusercontent.com/38149286/225187272-d9a20da9-ee15-4f9f-9af6-b7b07b1df08b.jpg)
+
+
 ### Reference
 
 1. Ben J Woodcroft et al. 2018.Genome-Centric View of Carbon Processing in Thawing Permafrost. Nature 560(7716):1-24.
